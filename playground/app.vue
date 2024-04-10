@@ -5,9 +5,9 @@
 			<button type="button" @click="isVisible = false">클릭</button>
 		</div> -->
 		<div class="section"><sta class="cont">1</sta></div>
-		<div class="section"><sta class="cont">2</sta></div>
-		<!-- <div class="section"><sta class="cont">3</sta></div> -->
-		<!-- <div class="section"><sta class="cont">4</sta></div> -->
+		<div class="section"><sta tagName="span" class="cont" data-sta-direction="rtl" data-sta-delay="1000">2</sta></div>
+		<div class="section"><Sta tagName="section" class="cont" data-sta-duration="500" data-sta-direction="ltr">3</Sta></div>
+		<div class="section"><Sta tagName="article" class="cont" data-sta-direction="ttb">4</Sta></div>
 		<!-- <div class="section"><sta class="cont">5</sta></div> -->
 	</div>
 </template>
