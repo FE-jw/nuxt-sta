@@ -13,7 +13,7 @@
 </template>
 
 <script setup>
-// const isVisible = ref(true);
+// const isVisible = ref(true);	// 컴포넌트 unMounted 테스트용
 </script>
 
 <style lang="scss" scoped>

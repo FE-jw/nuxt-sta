@@ -1,7 +1,6 @@
 <template>
 	<component
 		ref="sta"
-		data-sta
 		:is="tagName"
 		:class="{ 'sta-trigger': isVisible, 'sta-complete': isComplete }"
 	>
@@ -10,7 +9,7 @@
 </template>
 
 <script setup>
-import { onMounted, onUnmounted, ref } from 'vue';
+import { onBeforeMount, onMounted, onUnmounted, ref } from 'vue';
 
 defineProps({
 	tagName: {
@@ -29,15 +28,20 @@ const transHandler = () => {
 };
 let IO;	//IntersectionObserver
 
-onMounted(() => {
+// Setting Default
+onBeforeMount(() => {
+	sta.value.dataset.sta = '';
+
 	// delay
 	const delay = sta.value.dataset.staDelay;
 	if(delay) sta.value.style.setProperty('--sta-delay', delay / 1000 + 's');
-
+	
 	// duration
 	const duration = sta.value.dataset.staDuration;
 	if(duration) sta.value.style.setProperty('--sta-duration', duration / 1000 + 's');
+});
 
+onMounted(() => {
 	// observe
 	IO = new IntersectionObserver(entries => {
 		if(entries[0].intersectionRatio <= 0) return;

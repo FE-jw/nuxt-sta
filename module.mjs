@@ -6,8 +6,6 @@ export default defineNuxtModule({
 		configKey: 'sta'
 	},
 	setup(options){
-		// console.log(options);
-
 		addComponent({
 			name: 'sta',
 			filePath: '/node_modules/nuxt-sta/sta.vue',
