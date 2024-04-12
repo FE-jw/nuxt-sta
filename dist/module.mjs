@@ -8,7 +8,7 @@ export default defineNuxtModule({
 	setup(options){
 		addComponent({
 			name: 'sta',
-			filePath: '/node_modules/nuxt-sta/sta.vue',
+			filePath: '/node_modules/nuxt-sta/dist/sta.vue',
 			pascalName: 'Sta',
 			kebabName: 'sta'
 		});

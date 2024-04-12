@@ -1,0 +1,14 @@
+{
+  "name": "nuxt-sta",
+  "version": "0.0.1",
+  "author": "JW",
+  "description": "[Nuxt.js]  Scroll trigger Animation",
+  "main": "dist/module.mjs",
+  "keywords": ["sta", "nuxt-sta", "nuxt sta", "animation", "scroll animation"],
+  "homepage": "https://github.com/FE-jw/nuxt-sta",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/FE-jw/nuxt-sta.git"
+  },
+  "license": "MIT"
+}
