@@ -3,21 +3,35 @@
 		ref="sta"
 		:is="tagName"
 		:class="{ 'sta-trigger': isVisible, 'sta-complete': isComplete }"
+		data-sta
 	>
 		<slot />
 	</component>
 </template>
 
 <script setup>
-import { onBeforeMount, onMounted, onUnmounted, ref } from 'vue';
+import { onMounted, onBeforeUnmount, ref } from 'vue';
 
-defineProps({
+const props = defineProps({
 	tagName: {
 		type: String,
 		default: 'div'
+	},
+	delay: {
+		type: String
+	},
+	duration: {
+		type: String
+	},
+	distance: {
+		type: String
+	},
+	direction: {
+		type: String
 	}
 });
 
+let IO;	//IntersectionObserver
 const sta = ref(null);
 const isVisible = ref(false);
 const isComplete = ref(false);
@@ -26,22 +40,16 @@ const transHandler = () => {
 		isComplete.value = true;
 	}
 };
-let IO;	//IntersectionObserver
-
-// Setting Default
-onBeforeMount(() => {
-	sta.value.dataset.sta = '';
-
-	// delay
-	const delay = sta.value.dataset.staDelay;
-	if(delay) sta.value.style.setProperty('--sta-delay', delay / 1000 + 's');
-	
-	// duration
-	const duration = sta.value.dataset.staDuration;
-	if(duration) sta.value.style.setProperty('--sta-duration', duration / 1000 + 's');
-});
+const setCustom = () => {
+	if(props.delay) sta.value.style.setProperty('--sta-delay', props.delay / 1000 + 's');
+	if(props.duration) sta.value.style.setProperty('--sta-duration', props.duration / 1000 + 's');
+	if(props.distance) sta.value.style.setProperty('--sta-distance', props.distance + 'px');
+	if(props.direction) sta.value.dataset.staDirection = props.direction;
+};
 
 onMounted(() => {
+	setCustom();
+
 	// observe
 	IO = new IntersectionObserver(entries => {
 		if(entries[0].intersectionRatio <= 0) return;
@@ -50,11 +58,10 @@ onMounted(() => {
 	});
 	IO.observe(sta.value);
 	
-	// transition complete
 	sta.value.addEventListener('transitionend', transHandler);
 });
 
-onUnmounted(() => {
+onBeforeUnmount(() => {
 	IO.disconnect(sta.value);
 
 	sta.value.removeEventListener('transitionend', transHandler);
@@ -63,13 +70,13 @@ onUnmounted(() => {
 
 <style scoped>
 [data-sta]	{
-	--sta-value: 60px;
+	--sta-distance: 60px;
 	--sta-duration: 1s;
 	--sta-delay: 0;
-	opacity:0;transform:translate(0, var(--sta-value));
+	opacity:0;transform:translate(0, var(--sta-distance));
 }
-[data-sta][data-sta-direction='ttb']	{transform:translate(0, calc(var(--sta-value) * -1));}
-[data-sta][data-sta-direction='ltr']	{transform:translate(calc(var(--sta-value) * -1), 0);}
-[data-sta][data-sta-direction='rtl']	{transform:translate(var(--sta-value), 0);}
+[data-sta][data-sta-direction='ttb']	{transform:translate(0, calc(var(--sta-distance) * -1));}
+[data-sta][data-sta-direction='ltr']	{transform:translate(calc(var(--sta-distance) * -1), 0);}
+[data-sta][data-sta-direction='rtl']	{transform:translate(var(--sta-distance), 0);}
 [data-sta].sta-trigger	{opacity:1;transform:translate(0);transition-property:opacity, transform;transition-duration:var(--sta-duration);transition-delay:var(--sta-delay);}
 </style>

@@ -5,21 +5,23 @@
 			<button type="button" @click="isVisible = false">클릭</button>
 		</div> -->
 		<div class="section"><sta class="cont">1</sta></div>
-		<div class="section"><sta tagName="span" class="cont" data-sta-direction="rtl" data-sta-delay="1000">2</sta></div>
-		<div class="section"><Sta tagName="section" class="cont" data-sta-duration="500" data-sta-direction="ltr">3</Sta></div>
-		<div class="section"><Sta tagName="article" class="cont" data-sta-direction="ttb">4</Sta></div>
+		<div class="section"><sta tagName="span" class="cont" distance="100" direction="rtl" delay="500">2</sta></div>
+		<div class="section"><Sta tagName="section" class="cont" duration="500" direction="ltr">3</Sta></div>
+		<div class="section"><Sta tagName="article" class="cont" direction="ttb">4</Sta></div>
 		<!-- <div class="section"><sta class="cont">5</sta></div> -->
 	</div>
 </template>
 
 <script setup>
-// const isVisible = ref(true);	// 컴포넌트 unMounted 테스트용
+const isVisible = ref(true);	// 컴포넌트 unMounted 테스트용
 </script>
 
 <style lang="scss" scoped>
 .sta-wrap	{background-color:var(--nuxt-navy);
 	.section	{height:100vh;position:relative;
-		.cont	{display:flex;justify-content:center;align-items:center;width:200px;height:200px;position:absolute;left:calc(50% - 100px);top:calc(50% - 100px);font-size:40px;font-weight:bold;color:var(--nuxt-navy);background-color:var(--nuxt-green);}
+		.cont	{
+			--size: 300px;
+			display:flex;justify-content:center;align-items:center;width:var(--size);height:var(--size);position:absolute;left:calc(50% - calc(var(--size) / 2));top:calc(50% - calc(var(--size) / 2));font-size:40px;font-weight:bold;color:var(--nuxt-navy);background-color:var(--nuxt-green);}
 	}
 }
 </style>
