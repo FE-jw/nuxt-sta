@@ -1,6 +1,6 @@
 {
   "name": "nuxt-sta",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "author": "JW",
   "description": "[Nuxt.js]  Scroll trigger Animation",
   "main": "dist/module.mjs",

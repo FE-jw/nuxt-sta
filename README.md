@@ -7,8 +7,8 @@ STA Nuxt.js module
 * Nuxt 3 Support
 * Developed based on [STA](https://github.com/FE-jw/STA)
 * Using the IntersectionObserver API
-	* iOS: 12.2+
 	* Android: 5+
+	* iOS: 12.2+
 
 ## **Install**
 ```
@@ -49,3 +49,7 @@ export default defineNuxtConfig({
 	</sta>
 </template>
 ```
+
+## **Change Log**
+* 0.1.0 (2024-04-13)
+	* Release Beta Version
