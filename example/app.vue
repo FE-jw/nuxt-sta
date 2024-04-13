@@ -17,7 +17,7 @@
 </script>
 
 <style lang="scss" scoped>
-.sta-wrap	{background-color:var(--nuxt-navy);
+.sta-wrap	{overflow:hidden;background-color:var(--nuxt-navy);
 	.section	{height:100vh;position:relative;
 		.cont	{
 			--size: 300px;
