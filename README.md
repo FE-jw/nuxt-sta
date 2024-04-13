@@ -3,11 +3,9 @@
 # **nuxt-sta(beta)**
 STA Nuxt.js module
 
----
-
 ## **Features**
 * Nuxt 3 Support
-* Based on [STA](https://github.com/FE-jw/STA)
+* Developed based on [STA](https://github.com/FE-jw/STA)
 * Using the IntersectionObserver API
 	* iOS: 12.2+
 	* Android: 5+

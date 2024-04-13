@@ -1,11 +1,11 @@
-import { defineNuxtModule, addComponent } from '@nuxt/kit'
+import { defineNuxtModule, addComponent } from '@nuxt/kit';
 
 export default defineNuxtModule({
 	meta: {
 		name: 'sta',
 		configKey: 'sta'
 	},
-	setup(options){
+	setup(){
 		addComponent({
 			name: 'sta',
 			filePath: '/node_modules/nuxt-sta/dist/sta.vue',
