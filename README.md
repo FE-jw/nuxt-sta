@@ -51,5 +51,8 @@ export default defineNuxtConfig({
 ```
 
 ## **Change Log**
+* 0.1.1 (2024-04-17)
+	* Fixes
+		* Fixed filePath issue when loading sta.vue file
 * 0.1.0 (2024-04-13)
 	* Release Beta Version

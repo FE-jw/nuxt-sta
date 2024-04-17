@@ -5,10 +5,12 @@ export default defineNuxtModule({
 		name: 'sta',
 		configKey: 'sta'
 	},
-	setup(){
+	setup(options, nuxt){
+		const moduleDir = nuxt.options.modulesDir[0];
+
 		addComponent({
 			name: 'sta',
-			filePath: '/node_modules/nuxt-sta/dist/sta.vue',
+			filePath: moduleDir + '/nuxt-sta/dist/sta.vue',
 			pascalName: 'Sta',
 			kebabName: 'sta'
 		});
